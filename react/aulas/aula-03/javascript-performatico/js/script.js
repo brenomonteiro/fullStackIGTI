@@ -1,0 +1,24 @@
+window.addEventListener('load', start);
+
+
+const clickArray = [];
+function start() {
+  console.log("DOM carregado")
+  const button = document.querySelector('#clickButton');
+  button.addEventListener('click', handleButtonClick);
+}
+
+function handleButtonClick() {
+  const item = getNewTimestamp();
+  clickArray.push(item);
+  console.log(clickArray);
+  render();
+}
+
+function render() {
+  const ul = document.querySelector('#data');
+  const li = document.createElement('li');
+  li.textContent = item;
+  ul.appendChild(li);
+  document.title = clickArray.length;
+}
